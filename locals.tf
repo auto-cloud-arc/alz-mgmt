@@ -7,7 +7,7 @@ locals {
 }
 locals {
   config = (local.config_file_extension == local.const_yaml ?
-    yamldecode(templatefile("${path.module}/${local.config_file_name}", local.config_template_file_variables)) :
+    yamldecode(templatefile("${local.config_file_name}", local.config_template_file_variables)) :
     jsondecode(templatefile("${path.module}/${local.config_file_name}", local.config_template_file_variables))
   )
   config_template_file_variables = {
